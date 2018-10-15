@@ -15,7 +15,8 @@
 
 	<!-- 设置类的别名 -->
 	<typeAliases>
-
+		<typeAlias type="com.qfedu.domain.BrowHistory" alias="BrowHistory"></typeAlias>
+		<typeAlias type="com.qfedu.domain.Goods" alias="Goods"></typeAlias>
 
 		
 	</typeAliases>

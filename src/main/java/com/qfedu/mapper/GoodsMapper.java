@@ -2,16 +2,12 @@ package com.qfedu.mapper;
 
 import com.qfedu.domain.Goods;
 
+import java.util.List;
+import java.util.Map;
+
 public interface GoodsMapper {
-    int deleteByPrimaryKey(Integer id);
 
-    int insert(Goods record);
+    public List<Goods> selectAllGoodsByPage(Map<String, Object> map);
 
-    int insertSelective(Goods record);
-
-    Goods selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(Goods record);
-
-    int updateByPrimaryKey(Goods record);
+    public int countTOGoods();
 }
