@@ -7,76 +7,35 @@
     <result column="image" jdbcType="VARCHAR" property="image" />
     <result column="parentId" jdbcType="INTEGER" property="parentid" />
   </resultMap>
-  <sql id="Base_Column_List">
-    id, name, image, parentId
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from t_grade
-    where id = #{id,jdbcType=INTEGER}
+
+  <select id="grade"  resultType="com.qfedu.domain.Grade">
+
+    select * from t_grade
+    where parentId=-1;
+
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from t_grade
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.qfedu.domain.Grade">
-    insert into t_grade (id, name, image, 
-      parentId)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, 
-      #{parentid,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="com.qfedu.domain.Grade">
-    insert into t_grade
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="name != null">
-        name,
-      </if>
-      <if test="image != null">
-        image,
-      </if>
-      <if test="parentid != null">
-        parentId,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="image != null">
-        #{image,jdbcType=VARCHAR},
-      </if>
-      <if test="parentid != null">
-        #{parentid,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.qfedu.domain.Grade">
-    update t_grade
-    <set>
-      <if test="name != null">
-        name = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="image != null">
-        image = #{image,jdbcType=VARCHAR},
-      </if>
-      <if test="parentid != null">
-        parentId = #{parentid,jdbcType=INTEGER},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.qfedu.domain.Grade">
-    update t_grade
-    set name = #{name,jdbcType=VARCHAR},
-      image = #{image,jdbcType=VARCHAR},
-      parentId = #{parentid,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+
+  <select id="twograde" parameterType="int"  resultType="com.qfedu.domain.Grade">
+
+    select b.* from t_grade a
+    inner join t_grade b
+     on a.id=b.parentid
+    where a.parentId=-1
+    and a.id=#{id};
+
+  </select>
+
+  <select id="threegrade"   resultType="com.qfedu.domain.Grade">
+
+     select c.* from t_grade a
+    inner join t_grade b
+     on a.id=b.parentid
+     inner join t_grade c
+     on b.id=c.parentid
+     where a.parentid=-1
+     and b.id=#{id};
+  </select>
+
+
+
 </mapper>
