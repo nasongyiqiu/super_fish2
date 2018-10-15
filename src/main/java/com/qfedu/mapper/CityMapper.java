@@ -1,17 +1,12 @@
 package com.qfedu.mapper;
 
-import com.qfedu.domain.City;
+import com.qfedu.domain.Goods;
+
+import java.util.List;
+import java.util.Map;
 
 public interface CityMapper {
-    int deleteByPrimaryKey(Integer id);
+    public List<Goods> selectAllGoodsByCity(Map<String ,Object> map);
 
-    int insert(City record);
-
-    int insertSelective(City record);
-
-    City selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(City record);
-
-    int updateByPrimaryKey(City record);
+    public int countToCityGoods(String name);
 }
