@@ -23,8 +23,8 @@
   	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="com.mysql.jdbc.Driver"/>
 		<property name="jdbcUrl" value="jdbc:mysql://10.8.164.135:3306/super_fish"/>
-		<property name="user" value="gaoqiang"/>
-		<property name="password" value="gaoqiang"/>
+		<property name="user" value="root"/>
+		<property name="password" value="root"/>
 		<property name="initialPoolSize" value="5"/>
 		<property name="maxPoolSize" value="10"/>
 		<property name="maxIdleTime" value="1000"/>
@@ -38,7 +38,6 @@
 		<property name="configLocation" value="classpath:mybatis.xml"/>
 		<!-- 加载映射文件 -->
 		<property name="mapperLocations" value="classpath*:com/qfedu/mapper/*.xml"/>
-		
    </bean>
    
    <!-- 扫描映射代理的接口类,注入到spring容器中 -->

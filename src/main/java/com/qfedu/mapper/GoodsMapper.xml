@@ -22,4 +22,140 @@
     select count(1) from t_goods
   </select>
 
+  <sql id="Base_Column_List">
+    id, uid, gradeId, name, sale_price, old_price, goodimage, gooddescribe, degree, edit_time
+  </sql>
+
+  <select id="selectByGoodId" parameterType="java.lang.Integer" resultType="GoodsVo">
+    SELECT t_goods.*,(SELECT COUNT(*) FROM t_browhistory WHERE t_browhistory.goodId=#{goodsId}) browNum,(SELECT COUNT(*) FROM t_givethumb WHERE  t_givethumb.goodId=#{goodsId}) thumbNum  FROM t_goods WHERE t_goods.id=#{goodsId}
+    /*select * from t_goods where id=#{goodsId}*/
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_goods
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qfedu.domain.Goods">
+    insert into t_goods (id, uid, gradeId, 
+      name, sale_price, old_price, 
+      goodimage, gooddescribe, degree, 
+      edit_time)
+    values (#{id,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{gradeid,jdbcType=INTEGER}, 
+      #{name,jdbcType=VARCHAR}, #{salePrice,jdbcType=DOUBLE}, #{oldPrice,jdbcType=DOUBLE}, 
+      #{goodimage,jdbcType=VARCHAR}, #{gooddescribe,jdbcType=VARCHAR}, #{degree,jdbcType=VARCHAR}, 
+      #{editTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qfedu.domain.Goods">
+    insert into t_goods
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="gradeid != null">
+        gradeId,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="salePrice != null">
+        sale_price,
+      </if>
+      <if test="oldPrice != null">
+        old_price,
+      </if>
+      <if test="goodimage != null">
+        goodimage,
+      </if>
+      <if test="gooddescribe != null">
+        gooddescribe,
+      </if>
+      <if test="degree != null">
+        degree,
+      </if>
+      <if test="editTime != null">
+        edit_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="gradeid != null">
+        #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="salePrice != null">
+        #{salePrice,jdbcType=DOUBLE},
+      </if>
+      <if test="oldPrice != null">
+        #{oldPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="goodimage != null">
+        #{goodimage,jdbcType=VARCHAR},
+      </if>
+      <if test="gooddescribe != null">
+        #{gooddescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null">
+        #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null">
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qfedu.domain.Goods">
+    update t_goods
+    <set>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="gradeid != null">
+        gradeId = #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="salePrice != null">
+        sale_price = #{salePrice,jdbcType=DOUBLE},
+      </if>
+      <if test="oldPrice != null">
+        old_price = #{oldPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="goodimage != null">
+        goodimage = #{goodimage,jdbcType=VARCHAR},
+      </if>
+      <if test="gooddescribe != null">
+        gooddescribe = #{gooddescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null">
+        degree = #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="editTime != null">
+        edit_time = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qfedu.domain.Goods">
+    update t_goods
+    set uid = #{uid,jdbcType=INTEGER},
+      gradeId = #{gradeid,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      sale_price = #{salePrice,jdbcType=DOUBLE},
+      old_price = #{oldPrice,jdbcType=DOUBLE},
+      goodimage = #{goodimage,jdbcType=VARCHAR},
+      gooddescribe = #{gooddescribe,jdbcType=VARCHAR},
+      degree = #{degree,jdbcType=VARCHAR},
+      edit_time = #{editTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
 </mapper>
