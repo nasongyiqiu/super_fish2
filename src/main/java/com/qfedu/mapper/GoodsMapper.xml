@@ -158,4 +158,9 @@
       edit_time = #{editTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  
+  <select id="findthreegoods" parameterType="int" resultType="com.qfedu.domain.Goods">
+  select * from t_goods where gradeId=#{id}
+  </select>
 </mapper>
