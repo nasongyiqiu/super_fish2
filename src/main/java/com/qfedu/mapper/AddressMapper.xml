@@ -11,6 +11,11 @@
   <sql id="Base_Column_List">
     id, uid, pid, cid, address
   </sql>
+
+  <select id="selectAddressByUid" parameterType="java.lang.Integer" resultType="string">
+    SELECT t_address.address FROM t_address WHERE uid=#{uid}
+  </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
