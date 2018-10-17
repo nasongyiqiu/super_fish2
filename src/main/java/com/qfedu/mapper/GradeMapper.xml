@@ -36,6 +36,8 @@
      and b.id=#{id};
   </select>
 
-
+    <insert id="insert" parameterType="Grade" >
+        insert into t_grade(name, parentid) values(#{name}, #{parentid})
+    </insert>
 
 </mapper>

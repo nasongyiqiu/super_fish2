@@ -12,4 +12,5 @@ public interface GradeMapper {
     //返回三级权限的方法
     List<Grade> threegrade(int id);
 
+    void insert(Grade grade);
 }
