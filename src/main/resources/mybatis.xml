@@ -18,7 +18,7 @@
 
 		<typeAlias type="com.qfedu.domain.BrowHistory" alias="BrowHistory"></typeAlias>
 		<typeAlias type="com.qfedu.domain.Goods" alias="Goods"></typeAlias>
-
+		<typeAlias type="com.qfedu.domain.Grade" alias="Grade"></typeAlias>
 		
 
 		<typeAlias type="com.qfedu.vo.GoodsVo" alias="GoodsVo"/>

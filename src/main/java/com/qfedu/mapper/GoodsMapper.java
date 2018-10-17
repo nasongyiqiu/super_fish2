@@ -18,4 +18,10 @@ public interface GoodsMapper {
     public List<Goods> selectAllGoodsByPage(Map<String, Object> map);
 
     public int countTOGoods();
+
+    //点击三级列表用于展示数据的方法
+    public List<Goods> findthreegoods(int id);
+
+
+
 }
