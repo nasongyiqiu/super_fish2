@@ -163,4 +163,17 @@
   <select id="findthreegoods" parameterType="int" resultType="com.qfedu.domain.Goods">
   select * from t_goods where gradeId=#{id}
   </select>
+
+  <select id="selectByGradeName" parameterType="string" resultType="Goods">
+    select t_goods.* from t_goods
+    inner join t_grade a
+    on t_goods.gradeId=a.id
+    left join t_grade b
+    on a.parentId=b.id
+    left join t_grade c
+    on b.parentId=c.id
+    where c.name=#{gradeName}
+    order by rand() limit 10
+  </select>
+  
 </mapper>

@@ -98,4 +98,16 @@ public class GoodsService implements IGoodsService {
        }
         return arr;
     }
+
+    @Override
+    public List<Goods> findGoodsByGradeName(String gradeName) {
+        List<Goods> goodsList = null;
+        try {
+            goodsList = goodsMapper.selectByGradeName(gradeName);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+        return goodsList;
+    }
 }

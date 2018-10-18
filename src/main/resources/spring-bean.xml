@@ -23,8 +23,8 @@
   	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="com.mysql.jdbc.Driver"/>
 		<property name="jdbcUrl" value="jdbc:mysql://10.8.164.135:3306/super_fish?useSSL=false"/>
-		<property name="user" value="gaoqiang"/>
-		<property name="password" value="gaoqiang"/>
+		<property name="user" value="zhaojianming"/>
+		<property name="password" value="zhaojianming"/>
 		<property name="initialPoolSize" value="5"/>
 		<property name="maxPoolSize" value="10"/>
 		<property name="maxIdleTime" value="1000"/>

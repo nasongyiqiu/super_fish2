@@ -18,4 +18,7 @@ public interface IGoodsService {
 
     //点击一级列表展示的数据
     public List<GGVo> findallgoods(int id);
+
+    //根据一级分类展示发布的商品（数码和母婴产品）
+    List<Goods> findGoodsByGradeName(String gradeName);
 }

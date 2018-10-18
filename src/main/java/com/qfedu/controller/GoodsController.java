@@ -44,6 +44,9 @@ public class GoodsController {
         System.out.println(list);
         return list;
     }
+
+    @GetMapping("/findGoodsByGradeName.do")
+    public List<Goods> findGoodsByGradeName(String gradeName) {return goodsService.findGoodsByGradeName(gradeName);}
 }
 
 

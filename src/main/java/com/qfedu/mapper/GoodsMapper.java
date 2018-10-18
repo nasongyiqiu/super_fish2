@@ -22,6 +22,7 @@ public interface GoodsMapper {
     //点击三级列表用于展示数据的方法
     public List<Goods> findthreegoods(int id);
 
-
+    //根据一级分类展示发布的商品（数码、母婴、化妆品、户外装备）
+    List<Goods> selectByGradeName(String gradeName);
 
 }
