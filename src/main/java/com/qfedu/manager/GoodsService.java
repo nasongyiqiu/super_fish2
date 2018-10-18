@@ -110,4 +110,17 @@ public class GoodsService implements IGoodsService {
         }
         return goodsList;
     }
+
+    @Override
+    public List<Goods> findByTwoGrade(String twograde) {
+        List<Goods> goodsList = null;
+        try {
+            goodsList = goodsMapper.selectByTwoGrade(twograde);
+            //System.out.println("666" + goodsList);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+        return goodsList;
+    }
 }

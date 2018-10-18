@@ -25,4 +25,6 @@ public interface GoodsMapper {
     //根据一级分类展示发布的商品（数码、母婴、化妆品、户外装备）
     List<Goods> selectByGradeName(String gradeName);
 
+    //根据二级分类展示发布的商品（相机和收藏品）
+    List<Goods> selectByTwoGrade(String twograde);
 }

@@ -174,5 +174,14 @@
     where c.name=#{gradeName}
     order by rand() limit 10
   </select>
-  
+
+  <select id="selectByTwoGrade" parameterType="string" resultType="Goods">
+    select t_goods.* from t_goods
+    inner join t_grade a
+    on t_goods.gradeId=a.id
+    left join t_grade b
+    on a.parentId=b.id
+    where b.name=#{twograde}
+    order by rand() limit 10
+  </select>
 </mapper>

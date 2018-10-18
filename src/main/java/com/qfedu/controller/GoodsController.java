@@ -46,7 +46,18 @@ public class GoodsController {
     }
 
     @GetMapping("/findGoodsByGradeName.do")
-    public List<Goods> findGoodsByGradeName(String gradeName) {return goodsService.findGoodsByGradeName(gradeName);}
+    public List<Goods> findGoodsByGradeName(String gradeName) {
+        List<Goods> list = goodsService.findGoodsByGradeName(gradeName);
+        return list;
+    }
+
+    @GetMapping("/findGoodsByTwoGrade.do")
+    public List<Goods> findGoodsByTwoGrade(String twograde) {
+        List<Goods> list = goodsService.findGoodsByGradeName(twograde);
+        System.out.println("666"+list);
+        return list;
+    }
+
 }
 
 

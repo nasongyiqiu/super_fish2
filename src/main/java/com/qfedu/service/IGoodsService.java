@@ -19,6 +19,9 @@ public interface IGoodsService {
     //点击一级列表展示的数据
     public List<GGVo> findallgoods(int id);
 
-    //根据一级分类展示发布的商品（数码和母婴产品）
+    //根据一级分类展示发布的商品
     List<Goods> findGoodsByGradeName(String gradeName);
+
+    //根据二级分类展示发布的商品
+    List<Goods> findByTwoGrade(String twograde);
 }
