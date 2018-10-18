@@ -28,7 +28,6 @@
 
   <select id="selectByGoodId" parameterType="java.lang.Integer" resultType="GoodsVo">
     SELECT t_goods.*,(SELECT COUNT(*) FROM t_browhistory WHERE t_browhistory.goodId=#{goodsId}) browNum,(SELECT COUNT(*) FROM t_givethumb WHERE  t_givethumb.goodId=#{goodsId}) thumbNum  FROM t_goods WHERE t_goods.id=#{goodsId}
-    /*select * from t_goods where id=#{goodsId}*/
   </select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">

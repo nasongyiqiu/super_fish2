@@ -22,9 +22,9 @@
    <!-- 数据源的配置 -->
   	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="com.mysql.jdbc.Driver"/>
-		<property name="jdbcUrl" value="jdbc:mysql://10.8.164.135:3306/super_fish?useSSL=false"/>
-		<property name="user" value="zhaojianming"/>
-		<property name="password" value="zhaojianming"/>
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/super_fish"/>
+		<property name="user" value="root"/>
+		<property name="password" value="root"/>
 		<property name="initialPoolSize" value="5"/>
 		<property name="maxPoolSize" value="10"/>
 		<property name="maxIdleTime" value="1000"/>
@@ -112,13 +112,13 @@
 	    <!-- Shiro的核心安全接口,这个属性是必须的 -->  
 	    <property name="securityManager" ref="securityManager"/>
 	    <!-- 身份认证失败，则跳转到登录页面的配置 -->  
-	    <property name="loginUrl" value="/Ticktack_Office/login.html"/>
+	    <property name="loginUrl" value="/login.html"/>
 	    <!-- 权限认证失败，则跳转到指定页面 -->  
 	    <property name="unauthorizedUrl" value="/unauthorized.html"/>  
 	    <!-- Shiro连接约束配置,即过滤链的定义 -->  
 	    <property name="filterChainDefinitions">  
-	        <value>  
-
+	        <value>
+				/**=anon
 	        </value>  
 	    </property>
 	</bean>
