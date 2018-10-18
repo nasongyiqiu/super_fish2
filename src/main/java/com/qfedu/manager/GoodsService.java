@@ -112,7 +112,7 @@ public class GoodsService implements IGoodsService {
     }
 
     @Override
-    public List<Goods> findByTwoGrade(String twograde) {
+    public List<Goods> findGoodsByTwoGrade(String twograde) {
         List<Goods> goodsList = null;
         try {
             goodsList = goodsMapper.selectByTwoGrade(twograde);

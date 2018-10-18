@@ -53,7 +53,7 @@ public class GoodsController {
 
     @GetMapping("/findGoodsByTwoGrade.do")
     public List<Goods> findGoodsByTwoGrade(String twograde) {
-        List<Goods> list = goodsService.findGoodsByGradeName(twograde);
+        List<Goods> list = goodsService.findGoodsByTwoGrade(twograde);
         System.out.println("666"+list);
         return list;
     }
