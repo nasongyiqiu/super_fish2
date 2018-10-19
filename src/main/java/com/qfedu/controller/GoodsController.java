@@ -45,16 +45,24 @@ public class GoodsController {
         return list;
     }
 
+    //根据一级分类展示发布的商品
     @GetMapping("/findGoodsByGradeName.do")
     public List<Goods> findGoodsByGradeName(String gradeName) {
         List<Goods> list = goodsService.findGoodsByGradeName(gradeName);
         return list;
     }
 
+    //根据二级分类展示发布的商品
     @GetMapping("/findGoodsByTwoGrade.do")
     public List<Goods> findGoodsByTwoGrade(String twograde) {
         List<Goods> list = goodsService.findGoodsByTwoGrade(twograde);
-        System.out.println("666"+list);
+        return list;
+    }
+
+    //根据三级分类展示发布的商品
+    @GetMapping("/findGoodsByThreeGrade.do")
+    public List<Goods> findGoodsByThreeGrade(String threegrade) {
+        List<Goods> list = goodsService.findGoodsByThreeGrade(threegrade);
         return list;
     }
 

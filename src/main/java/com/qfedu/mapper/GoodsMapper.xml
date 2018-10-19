@@ -184,4 +184,11 @@
     where b.name=#{twograde}
     order by rand() limit 10
   </select>
+
+  <select id="selectByThreeGrade" parameterType="string" resultType="Goods">
+    select t_goods.name, t_goods.goodimage, t_goods.old_price from t_goods
+    inner join t_grade
+    on t_goods.gradeId=t_grade.id
+    where t_grade.name=#{threegrade}
+  </select>
 </mapper>

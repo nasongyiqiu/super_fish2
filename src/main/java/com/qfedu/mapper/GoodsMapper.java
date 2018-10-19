@@ -27,4 +27,8 @@ public interface GoodsMapper {
 
     //根据二级分类展示发布的商品
     List<Goods> selectByTwoGrade(String twograde);
+
+    //根据三级分类展示发布的商品（苹果商品专栏）
+    List<Goods> selectByThreeGrade(String threegrade);
+
 }

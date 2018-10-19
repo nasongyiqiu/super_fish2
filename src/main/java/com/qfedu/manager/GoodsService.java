@@ -99,6 +99,7 @@ public class GoodsService implements IGoodsService {
         return arr;
     }
 
+    //根据一级分类展示发布的商品
     @Override
     public List<Goods> findGoodsByGradeName(String gradeName) {
         List<Goods> goodsList = null;
@@ -111,16 +112,30 @@ public class GoodsService implements IGoodsService {
         return goodsList;
     }
 
+    //根据二级分类展示发布的商品
     @Override
     public List<Goods> findGoodsByTwoGrade(String twograde) {
         List<Goods> goodsList = null;
         try {
             goodsList = goodsMapper.selectByTwoGrade(twograde);
-            //System.out.println("666" + goodsList);
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
         }
         return goodsList;
     }
+
+    @Override
+    public List<Goods> findGoodsByThreeGrade(String threegrade) {
+        List<Goods> goodsList = null;
+        try {
+            goodsList = goodsMapper.selectByThreeGrade(threegrade);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+        return goodsList;
+    }
+
+
 }

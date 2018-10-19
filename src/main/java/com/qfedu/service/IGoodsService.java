@@ -24,4 +24,8 @@ public interface IGoodsService {
 
     //根据二级分类展示发布的商品
     List<Goods> findGoodsByTwoGrade(String twograde);
+
+    //根据三级分类展示发布的商品
+    List<Goods> findGoodsByThreeGrade(String threegrade);
+
 }
