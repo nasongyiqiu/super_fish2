@@ -119,10 +119,10 @@
 	    <property name="filterChainDefinitions">  
 	        <value>
 				/**=anon
+				/cart.html=auth
+				/dingdan.html=auth
 	        </value>  
 	    </property>
 	</bean>
-   
-   
    
 </beans>

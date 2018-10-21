@@ -1,5 +1,7 @@
 package com.qfedu.domain;
 
+import java.util.Date;
+
 public class cart {
     private Integer id;
 
@@ -8,6 +10,7 @@ public class cart {
     private Integer goodid;
 
     private Integer num;
+    private Date createdate;
 
     public Integer getId() {
         return id;
@@ -39,5 +42,13 @@ public class cart {
 
     public void setNum(Integer num) {
         this.num = num;
+    }
+
+    public Date getCreatedate() {
+        return createdate;
+    }
+
+    public void setCreatedate(Date createdate) {
+        this.createdate = createdate;
     }
 }

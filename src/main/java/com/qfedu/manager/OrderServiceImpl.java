@@ -19,7 +19,10 @@ public class OrderServiceImpl implements IOrderService {
     @Autowired
     private OrderMapper orderMapper;
     @Override
-    public R insertOrder(Order order) {
+    public R insertOrder(Order order,HttpServletRequest request) {
+        request.getSession().setAttribute("uid",1);
+        int uid = (int)request.getSession().getAttribute("uid");
+        order.setUid(uid);
         try {
             return new R(1,"插入成功",orderMapper.insertOrder(order));
         } catch (Exception e) {
@@ -32,7 +35,7 @@ public class OrderServiceImpl implements IOrderService {
     public PageBean selectAllOrder(int page, int size, HttpServletRequest request) {
         PageBean pageBean = null;
         try {
-            request.getSession().setAttribute("uid",1);
+//            request.getSession().setAttribute("uid",1);
             int uid = (Integer) request.getSession().getAttribute("uid");
             //查询该用户的总订单个数
             int count = orderMapper.count(uid);
@@ -87,7 +90,7 @@ public class OrderServiceImpl implements IOrderService {
     @Override
     public R updateOrderStateByUid(HttpServletRequest request, int goodId,int stateChange) {
         try {
-            request.getSession().setAttribute("uid",1);
+//            request.getSession().setAttribute("uid",1);
             int uid = (int)request.getSession().getAttribute("uid");
 
             Map<String,Object> map = new HashMap<>();

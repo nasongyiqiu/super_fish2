@@ -47,8 +47,7 @@
       addressId, num, createdate, 
       state)
     values (#{uid,jdbcType=INTEGER}, #{goodid,jdbcType=INTEGER},
-      #{addressid,jdbcType=INTEGER}, #{num,jdbcType=INTEGER}, #{createdate,jdbcType=TIMESTAMP}, 
-      #{state,jdbcType=INTEGER})
+      #{addressid,jdbcType=INTEGER}, 1, now(),1)
   </insert>
   <insert id="insertSelective" parameterType="com.qfedu.domain.Order">
     insert into t_order

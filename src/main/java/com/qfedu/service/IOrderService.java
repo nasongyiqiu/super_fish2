@@ -10,7 +10,7 @@ import java.util.Map;
 
 public interface IOrderService {
     //插入订单数据
-    public R insertOrder(Order order);
+    public R insertOrder(Order order,HttpServletRequest request);
 
     public PageBean selectAllOrder(int page, int size, HttpServletRequest request);
     /*public PageBean selectAllOrder(int page, int size,int uid);*/

@@ -15,8 +15,8 @@ public class OrderController {
     @Autowired
     private IOrderService orderService;
     @RequestMapping("/insertOrder.do")
-    public R insertOrder(Order order){
-        return new R(1,"插入成功",orderService.insertOrder(order));
+    public R insertOrder(Order order,HttpServletRequest request){
+        return orderService.insertOrder(order,request);
     }
 
     @RequestMapping("/selectAllOrderByUid.do")
@@ -24,9 +24,8 @@ public class OrderController {
         return new R(1,"查询订单成功",orderService.selectAllOrder(page,size,request));
     }
 
-
     @RequestMapping("/updateOrderState.do")
     public R updateOrderState(HttpServletRequest request, int goodId,int stateChange){
-        return new R(1,"",orderService.updateOrderStateByUid(request,goodId,stateChange));
+        return orderService.updateOrderStateByUid(request,goodId,stateChange);
     }
 }

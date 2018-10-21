@@ -10,21 +10,31 @@
   <sql id="Base_Column_List">
     id, uid, goodId, num
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from t_cart
-    where id = #{id,jdbcType=INTEGER}
+  <select id="selectCartByUid" parameterType="map" resultType="cart">
+    SELECT * FROM  t_cart WHERE uid=#{uid} ORDER BY createdate DESC LIMIT #{index},#{size}
   </select>
+
+  <select id="count" parameterType="int" resultType="int">
+    select count(1) from t_cart where uid=#{uid}
+  </select>
+
+  <delete id="deleteByUidAndGoodId"  parameterType="cart">
+      delete from t_cart where uid=#{uid} and goodId=#{goodId}
+  </delete>
+
+  <select id="selectByUidAndGoodId" parameterType="cart" resultType="cart">
+    select * from t_cart where uid=#{uid} and goodId=#{goodid}
+  </select>
+  <update id="updateTime" parameterType="cart">
+    update t_cart set createdate=now() where uid=#{uid} and goodId=#{goodId}
+  </update>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_cart
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.qfedu.domain.cart">
-    insert into t_cart (id, uid, goodId, 
-      num)
-    values (#{id,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{goodid,jdbcType=INTEGER}, 
-      #{num,jdbcType=INTEGER})
+  <insert id="insert" parameterType="cart">
+    insert into  t_cart(uid,goodId,num,createdate) values(#{uid},#{goodid},1,now());
   </insert>
   <insert id="insertSelective" parameterType="com.qfedu.domain.cart">
     insert into t_cart

@@ -24,6 +24,7 @@
 		<typeAlias type="com.qfedu.vo.GoodsVo" alias="GoodsVo"/>
 		<typeAlias type="com.qfedu.domain.Address" alias="Address"/>
 		<typeAlias type="com.qfedu.domain.Order" alias="Order"/>
+		<typeAlias type="com.qfedu.domain.cart" alias="cart"/>
 	</typeAliases>
 
 	
